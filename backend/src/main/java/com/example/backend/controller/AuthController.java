@@ -15,13 +15,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public String register(@RequestBody User user) {
-        if (user.getUsername() == null || user.getUsername().isEmpty()) {
-            return "Username is required";
-        }
-
-        if (user.getPassword() == null || user.getPassword().isEmpty()) {
-            return "Password is required";
-        }
+     
 
         if (userRepository.findByUsername(user.getUsername()) != null) {
             return "Username already exists";
@@ -33,14 +27,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestBody User user) {
-        if (user.getUsername() == null || user.getUsername().isEmpty()) {
-            return "Username is required";
-        }
-
-        if (user.getPassword() == null || user.getPassword().isEmpty()) {
-            return "Password is required";
-        }
-
+       
         User existingUser = userRepository.findByUsername(user.getUsername());
         if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
             return "Login successful";
