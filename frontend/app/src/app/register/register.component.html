@@ -1,0 +1,13 @@
+<div class="cls-1">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="form">
+        <input formControlName="username"  placeholder="Username">
+        <input type="password" formControlName="password" placeholder="Password">
+       
+     
+      <button class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+    </form>
+
+  <p class="btn">Already have an account? <a routerLink="/login">Login here</a></p>
+</div>
+
