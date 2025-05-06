@@ -20,6 +20,7 @@ public class AuthController {
         if (userRepository.findByUsername(user.getUsername()) != null) {
             return "Username already exists";
         }
+       
 
         userRepository.save(user);
         return "User registered successfully";
@@ -32,7 +33,9 @@ public class AuthController {
         if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
             return "Login successful";
         }
+        
 
         return "Invalid username or password";
+        
     }
 }
